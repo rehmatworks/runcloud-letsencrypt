@@ -96,10 +96,8 @@ class RcSSL():
 	def uninstall_ssl(self, app):
 		appinfo = self.get_app_info(app)
 		if len(appinfo) == self.appdictcount:
-			run_cmd('sudo rm -rf /etc/letsencrypt/live/{}'.format(appinfo.get('valid_domains')[0]))
-			run_cmd('sudo rm -rf /etc/letsencrypt/renewal/{}'.format(appinfo.get('valid_domains')[0]))
-			run_cmd('sudo rm -rf /etc/letsencrypt/archive/{}'.format(appinfo.get('valid_domains')[0]))
-			run_cmd('sudo rm -rf {}/{}-ssl.conf'.format(appinfo.get('vhostdir'), appinfo.get('name')))
+			run_cmd('certbot delete --cert-name {}'.format(appinfo.get('valid_domains')[0]))
+			os.remove('{}/{}-ssl.conf'.format(appinfo.get('vhostdir'), appinfo.get('name')))
 		else:
 			raise Exception('Provided app name seems to be invalid.')
 
