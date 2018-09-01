@@ -1,4 +1,4 @@
-import glob, os, sys
+import glob, os
 import nginx
 import argparse
 import re
