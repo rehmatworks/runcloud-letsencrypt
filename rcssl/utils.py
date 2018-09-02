@@ -22,11 +22,6 @@ class RcSSL():
 	def app_exists(self, appname):
 		return bool(os.path.exists(self.app_conf_file(appname)))
 
-	def app_root(self, appname):
-		if self.app_exists(appname):
-			return find_between()
-		return False
-
 	def get_app_info(self, appname):
 		info = {}
 		if self.app_exists(appname):
@@ -67,7 +62,7 @@ class RcSSL():
 		domainsstr = ''
 		domains = appinfo.get('valid_domains')
 		for domain in domains:
-			domainsstr += ' -d {}'.format(domain)	
+			domainsstr += ' -d {}'.format(domain)		
 		cmd = "certbot certonly --webroot -w {} --register-unsafely-without-email --agree-tos --force-renewal --fullchain-path={} --key-path={} {}".format(self.acmeroot, appinfo.get('cert_path'), appinfo.get('key_path'), domainsstr)
 		try:
 			run_cmd(cmd)

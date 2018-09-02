@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='rcssl',
-	version='1.2',
+	version='1.3',
 	description='Install Let\'s Encrypt SSL on RunCloud servers the easy way.',
 	author="Rehmat",
 	author_email="contact@rehmat.works",
@@ -16,5 +16,6 @@ setup(name='rcssl',
 		'rcssl'
 	],
 	install_requires=[
-		'python-nginx'	]
+		'python-nginx'
+	]
 )
