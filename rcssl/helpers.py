@@ -112,3 +112,7 @@ def reload_nginx():
 
 def reload_cron():
 	run_cmd('sudo service cron reload')
+
+def is_root():
+	import os
+	return bool(os.geteuid() == 0)

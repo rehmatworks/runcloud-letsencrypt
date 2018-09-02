@@ -15,6 +15,10 @@ parser.add_argument('-a', '--autopilot', choices=['disable', 'enable'], type=str
 args = parser.parse_args()
 
 def main():
+	if not is_root():
+		print_message('Root privileges are required. Please use this tool as root.', 'FAIL')
+		exit(0)
+
 	if not is_installed('certbot'):
 		print_message('Certbot is not installed, installing the libraries...', 'WARNING')
 		try:
