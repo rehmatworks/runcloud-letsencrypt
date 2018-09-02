@@ -67,12 +67,12 @@ class RcSSL():
 		domainsstr = ''
 		domains = appinfo.get('valid_domains')
 		for domain in domains:
-			domainsstr += ' -d '+domain		
-			cmd = "certbot certonly --webroot -w {} --register-unsafely-without-email --agree-tos --force-renewal --fullchain-path={} --key-path={} {}".format(self.acmeroot, appinfo.get('cert_path'), appinfo.get('key_path'), domainsstr)
-			try:
-				run_cmd(cmd)
-			except:
-				raise
+			domainsstr += ' -d {}'.format(domain)	
+		cmd = "certbot certonly --webroot -w {} --register-unsafely-without-email --agree-tos --force-renewal --fullchain-path={} --key-path={} {}".format(self.acmeroot, appinfo.get('cert_path'), appinfo.get('key_path'), domainsstr)
+		try:
+			run_cmd(cmd)
+		except:
+			raise
 
 	def install_ssl(self, app):
 		appinfo = self.get_app_info(app)
