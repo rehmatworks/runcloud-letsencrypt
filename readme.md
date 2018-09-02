@@ -54,3 +54,6 @@ And to uninstall SSL certificate from a specific app:
 ```bash
 rcssl -u appname
 ```
+
+### Support Me
+If you have found my work useful, then consider ordering your next Digital Ocean server using my [referral link](https://m.do.co/c/5778718c4f2e). Signing up using this link will give you $10 as well as it will earn me $25 credit. I will use the earned credit to deploy servers involved in my open-source projects' testing. 
