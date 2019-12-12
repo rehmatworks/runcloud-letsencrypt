@@ -114,7 +114,7 @@ class RcSSL():
 			raise Exception('Auto-pilot CRON job is not enabled.')
 
 	def renew_ssls(self):
-		cmd = 'certbot renew'
+		cmd = 'certbot renew --webroot-path {}'.format(self.acmeroot)
 		run_cmd(cmd)
 
 	def has_ssl(self, app):
